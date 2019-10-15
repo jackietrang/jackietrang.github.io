@@ -1,0 +1,56 @@
+library(arm)
+library(Matching)
+df = read.csv("noise CS112.2.1.preclass_ss1.csv")
+
+lm1 <- lm(df$height ~ df$exercise_time + df$milk_ml)
+
+lm1$coef
+
+
+library(arm)
+
+set.seed(123)
+
+sim_results <- sim(lm1, n.sims = 20)
+
+set.seed(232)
+
+# 20 sims is too few to get reliable results
+sim_results2 <- sim(lm1, n.sims = 10000)
+mean(sim_results2@coef[,1])
+
+# 3953 -- compare to 3946.18432 (when n.sims is big, e.g., 100K it's a better estimate)
+
+mean(sim_results2@coef[,2])
+# 53 -- compare to 53.39 (ditto re large number of simulations)
+
+# take the std devs of the simulated coefficients and compare to the standard errors (use summary)
+
+# use the quantile function to get 95% conf intervals of coefficients and compare to confint() estimates
+# (?confint you don't know how to use it)
+# you'll need something like quantile(sim_results2@coef[,1], probs = c(0.025, 0.975))
+
+# you can use these simulated coefs on their own to produce a prediction (a predicted y) 
+# for every simulated coefficient you've got...
+# but that wouldn't incorporate the estimate of irreducible error built into your model.
+# to get a full prediction interval, you need to produce a predicted y for every 
+# row (i.e., for every simulated coefficient you've got) that ALSO INCLUDES a simulated sigma...
+# like this:
+
+first_set_of_simulated_ys_including_irreducible_error <- 
+  sim_results2@coef[1,1]*rep(1, length(df$exercise_time
+  sim_results2@coef[1,2]*df$exercise_time + 
+  rnorm(length(df$exercise_time), 0, sim_results2@sigma[1])
+
+second_set_of_simulated_ys_including_irreducible_error <- 
+  sim_results2@coef[2,1]*rep(1, length(df$exercise_time)) + 
+  sim_results2@coef[2,2]*df$exercise_time + 
+  rnorm(length(df$exercise_time), 0, sim_results2@sigma[2])
+
+# obviously, in practice, the above would be done via something like a loop
+# and you could do it for each of your simulated estimates (in this case, 10K)
+# and once you had these simulated ys, you could estimate prediction intervals of y
+# for every x in your data set...
+
+# We will discuss all this in 3.1
+

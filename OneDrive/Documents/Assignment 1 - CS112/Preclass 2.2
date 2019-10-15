@@ -1,0 +1,19 @@
+###Preclass work 2.1
+RMSE1 = function(i, j){
+  sqrt(mean((i-j)^2))
+}
+Heyou = read.csv("Heyou data.csv")
+Heyoumodel <- lm(avg_ppl_dated_per_yr ~ appearance + gender +1, data=Heyou)
+RMSE1(predict(Heyoumodel,Heyou), Heyou$avg_ppl_dated_per_yr)
+summary(Heyoumodel)
+
+
+###My data set
+RMSE2 = function(i,j){
+  sqrt(mean((i-j)^2))
+}
+Jackiedf = read.csv("CS112.2.1.preclass_ss1.csv")
+Jackiemodel <- lm(height ~ exercise_time + milk_ml +1, data=Jackiedf)
+RMSE2(predict(Jackiemodel,Jackiedf), Jackiedf$height)
+
+summary(Jackiemodel)

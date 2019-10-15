@@ -1,0 +1,143 @@
+###Preclass 3.2
+
+#--------------Rlab in the textbook
+library (ISLR) 
+names(Smarket ) 
+
+dim(Smarket)
+summary(Smarket)
+cor(Smarket[,-9]) #in cor, x must be numeric
+                #dframe[rowsyouwant, columnsyouwant]
+                #Is using [,-9] to get all rows and columns?
+attach(Smarket)
+plot(Volume)
+
+#------Logistic regression
+glm.fit=glm(Direction~Lag1+Lag2+Lag3+Lag4+Lag5+Volume,
+            data=Smarket, family=binomial) #same as linear
+            #but have to add argument: family=binomial
+summary(glm.fit) #smallest p-value is with Lag1
+    #However, at a value of 0.15, the p-value is still large
+      #-> no clear evidence of real association Lag1 & Direction
+glm(formula = Direction~Lag1+Lag2+Lag3+Lag4+Lag5+Volume,
+    data=Smarket, family=binomial)
+
+#predict() function to predict the prob that the market will go up
+##given values of the predictors.
+##type="response" tells R to output prob of the form P(Y=1|X) as opposed to logit.
+glm.probs=predict(glm.fit,type="response")
+glm.probs[1:10]
+contrasts(Direction) #create a dummy variable with a 1 for Up
+#Convert probs into class labels Up or Down
+glm.pred=rep("Down",1250) #create ac vector of 1250 Down elemens
+glm.pred[glm.probs>.5]="Up" #transform to Up to all Prob of market increase >0.5
+table(glm.pred,Direction) #confusion market to see how many correct/incorrectly classified
+mean(glm.pred==Direction) #compute the fraction of days 
+                          #for which the prediction was correct
+#Previous is misleading because  the training error is overly optimistic
+#Now create test data
+
+train=(Year<2005)
+Smarket.2005=Smarket[!train,]#submatrix of the stock market dta
+      #containing only observations for which train = False
+dim(Smarket.2005)
+Direction.2005=Direction[!train]
+glm.fit=glm(Direction~Lag1+Lag2+Lag3+Lag4+Lag5+Volume,
+            data=Smarket,family=binomial,subset=train)
+glm.probs=predict(glm.fit,Smarket.2005,type="response")
+#Training is b4 2005, testing only dates in 2005
+#Finally, compute predictions for 2005 and compare them to the actual movements of the market
+glm.pred=rep("Down",252)
+glm.pred[glm.probs>.5]="Up"
+table(glm.pred,Direction.2005)
+mean(glm.pred==Direction.2005)
+mean(glm.pred!=Direction.2005)
+
+#Logistic regression model had very underwhelming p-value
+#associated with all of the predictors
+#By removing the variables that appear not to be helpfil 
+#in predicting Direction, we can obtain a more effective model.
+glm.fit=glm(Direction~Lag1+Lag2,data=Smarket,family=binomial,
+            subset=train)
+glm.probs=predict(glm.fit,Smarket.2005,type="response")
+glm.pred=rep("Down",252)
+glm.pred[glm.probs>.5]="Up"
+table(glm.pred,Direction.2005)
+mean(glm.pred==Direction.2005) #56%,overall logistic regression
+  #is no better than the naive approach
+106/(106+76) #On days when logistic regre predics and increase in the market
+              #it has 58% accuracy 
+
+#Predict returns associated w Lag1 & Lag2
+#????DOES NOT WORK
+predict(glm.fit,newdata=data.frame(Lag1=c(1.2,1.5),
+                                   Lag2=c(1.1,-0.8)),
+                                    type="response")
+
+
+#----------------------------------------------------LALONDE dataset ------------------------------------------------#
+
+#--- Self-experiment with lalonde dataset &logistic regression
+#Then, using the “lalonde” data set in the “Matching” package, 
+#experiment with logistic regression by estimating propensity scores 
+#(the probability of being in the group assigned to treatment). 
+#This would mean modeling the dependent variable as "treat" and the independent variable
+#as age, educ, black, hisp, etc.--i.e., any of the pre-treatment variables. 
+
+library(arm)
+library(Matching)
+data(lalonde)
+names(lalonde)
+dim(lalonde)
+
+lalo.fit=glm(treat~educ+age+married+hisp+black,data=lalonde,family=binomial)
+summary(lalo.fit) #see summary w pvalue
+
+glm(formula=treat~educ+age+married+hisp+black,data=lalonde,family=binomial) #see intercept, shortened version
+
+#After estimating propensity scores, try to estimate (predict) the linear predictor 
+#(transforming the propensity scores using the formula given in the text). 
+#Instead of transforming the propensity scores into the linear predictor (the "logit")
+#using the formula, you could also use the "predict.glm" function and use the "type" argument 
+#(experiment with "link", "response", etc.).
+
+#---------Use all of data as training data
+pros.glm = predict(lalo.fit,type="response")
+pros.pred[1:10]
+pros.pred=rep("1",445) #Use 445 because dim(lalonde) is 445,12
+pros.pred[pros.glm>.5]
+table(pros.pred, lalonde$treat)
+mean(pros.pred==lalonde$treat)  #41.6% correct according to regression model with all data as training
+
+#---------Use all of data as partly test and partly training data
+#Now create test data
+train= lalonde$treat[1:222]
+lalonde.sub = lalonde[!train,]
+treat.sub=treat[!train,]
+lalo.fit=glm(treat~educ+age+married+hisp+black,data=lalonde,family=binomial,subset=train)
+pros.proh=predict(lalo.fit,lalonde.sub,type="response")
+
+
+lalonde$educ
+#Training is b4 2005, testing only dates in 2005
+#Finally, compute predictions for 2005 and compare them to the actual movements of the market
+glm.pred=rep("Down",252)
+glm.pred[glm.probs>.5]="Up"
+table(glm.pred,Direction.2005)
+mean(glm.pred==Direction.2005)
+mean(glm.pred!=Direction.2005)
+
+#Logistic regression model had very underwhelming p-value
+#associated with all of the predictors
+#By removing the variables that appear not to be helpfil 
+#in predicting Direction, we can obtain a more effective model.
+glm.fit=glm(Direction~Lag1+Lag2,data=Smarket,family=binomial,
+            subset=train)
+glm.probs=predict(glm.fit,Smarket.2005,type="response")
+glm.pred=rep("Down",252)
+glm.pred[glm.probs>.5]="Up"
+table(glm.pred,Direction.2005)
+mean(glm.pred==Direction.2005) #56%,overall logistic regression
+#is no better than the naive approach
+106/(106+76) #On days when logistic regre predics and increase in the market
+#it has 58% accuracy 
