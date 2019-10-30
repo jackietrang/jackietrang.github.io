@@ -28,7 +28,12 @@ section, summary, time, mark, audio, video {
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
-
+.image-div{
+	float:left;
+	margin-right:10px;
+	max-width: 20%;
+	max-height: 20%;
+}
 body {
 	line-height: 1;
 }
