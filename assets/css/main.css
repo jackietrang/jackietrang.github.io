@@ -121,61 +121,15 @@ input, select, textarea {
 /*****************/
 /**NAV & Heading**/
 /*****************/
-
-.nav {
-	margin-top: 0;
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	flex-direction: row;
-	float: none;
-	position: absolute;
-	top: 10px;
-	left:0;
-	right:0;
-}
-
-.nav a {
-	text-decoration: none;
-	color: white;
-	text-transform: uppercase;
-	font-size: 2em;
-	transition: all .25s;
-}
-
-.nav a:hover {
-	color: skyblue;
-}
-
-.nav li  {
-	padding-top: 20px;
-	padding-left: 25px;
-	transition: all .25s;
-}
-
-.nav li:hover {
-	color: grey;
-	border-radius: 10px;
-	transform: scale(1.15);
-}
-
-.nav:first-child {
-	padding-left: 0;
-}
-
-.nav a::before {
-	content: " ";
-	display: block;
-	height: 10px;
-	width: 100%;
-	color: purple;
+.headerImg {
+	background-image: url("/images/headImg.jpg");
 }
 
 .Home {
 	text-align: center;
 	color: white;
 }
-
+/*Jackie Trang display*/
 .heading {
 	font-size: 5em;
 	min-height: 100vh;
@@ -194,24 +148,13 @@ input, select, textarea {
 	font-size: .5em;
 }
 
-.videoSection {
+.headerImg {
 	position: fixed;
 	top: 0;
 	left: 0;
 	min-width: 100%;
 	min-height: 100%;
 	z-index: -100;
-}
-
-.VidOverlay {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	z-index: -50;
-	background: black;
-	opacity: .35;
 }
 
 .Home.section {
