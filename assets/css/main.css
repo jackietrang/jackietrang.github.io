@@ -125,7 +125,7 @@ input, select, textarea {
 /*****************/
 /* Heading**/
 /*****************/
-.header-sec {
+.name-slogan {
 
 	background-image: url('../portfolio pics/headImg.png');
 	/* Background image is centered vertically and horizontally at all times */
@@ -145,27 +145,52 @@ input, select, textarea {
 	/* Set a background color that will be displayed
        while the background image is loading */
 	background-color: #464646;
+	position: relative;
+	min-height: 650px;
+	max-height: 750px;
+	min-width: 100%;
 }
-}
+
 
 
 /*Jackie Trang display*/
-/*.heading {*/
-/*	font-size: 5em;*/
-/*	min-height: 100vh;*/
-/*	display: flex;*/
-/*	flex-direction: column;*/
-/*	align-items: center;*/
-/*	justify-content: center;*/
-/*}*/
-#main {
-	margin-bottom: 0px;
-	margin-top: 0;
+.heading {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	max-height: 750px;
+	overflow-wrap: break-word;
+	white-space: pre-wrap;
+}
+#my-name {
+	text-align: center;
+	/*text-align: center;*/
+	color: floralwhite;
+	font-size: 4.5em;
+	font-weight: 700;
+	font-style: normal;
+	font-family: "Chronicle Display Bold",Georgia,serif;
+	padding-top: 200px;
+}
+#secondary{
+	padding-top: 0;
+	margin: 0;
 }
 
-#secondary {
-	font-size: .5em;
+#tag-line {
+	display: inline-block;
+	padding-top: 1em;
+	font-size: 1.3em;
+	font-weight: 500;
+	line-height: 1.3;
+	text-align: center;
+	color: floralwhite;
+	font-family: 'Roboto', sans-serif;
+	text-transform: uppercase;
+	margin: 0;
 }
+
 
 
 /* Type */
@@ -217,8 +242,8 @@ input, select, textarea {
 		font-style: italic;
 	}
 
-	p {
-		margin: 0 0 2em 0;
+	p:not(.name-slogan) {
+		margin: 0 0 1em 0;
 	}
 
 	h1 {
