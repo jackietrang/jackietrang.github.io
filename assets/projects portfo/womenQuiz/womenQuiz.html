@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Quiz</title>
+
+    <link rel="stylesheet" href="quiz.css">
+
+</head>
+
+<body>
+<!--  Nav bar here-->
+<header>
+<img src="https://cdn.glitch.com/b34f70e3-6c66-4d44-821c-5e0bf97f0f00%2Flogo.webp?v=1593546107927" alt="logo" class="logo">
+  <div class = "containerr">
+    <nav>
+    <ul>
+      <li><a href = "#">Home</a></li>
+      <li id="otherGames"><a href = "#">Other Games</a>
+          <ul>
+            <li><a href = "#">Link 1</a></li>
+            <li><a href = "#">Link 1</a></li>
+            <li><a href = "#">Link 1</a></li>
+        </ul>
+     </li>
+      </ul>
+    </nav>
+  </div>
+  </header>
+  
+<h1>
+	It's time to find out how much you know about Women in Engineering!
+</h1>
+
+
+  
+<div id="stripe">
+	<button id="hint">Hint</button>
+  <button id="skip">Next question</button>
+</div>
+  
+    <div id="container">
+
+        <div id="start">Start Quiz!</div>
+
+        <div id="quiz" style="display: none">
+
+            <div id="question"></div>
+
+            <div id="qImg"></div>
+
+            <div id="choices">
+
+                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+
+                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+
+                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+              
+                <div class="choice" id="D" onclick="checkAnswer('D')"></div>
+
+            </div>
+
+            <div id="timer">
+
+                <div id="counter"></div>
+
+                <div id="btimeGauge"></div>
+
+                <div id="timeGauge"></div>
+
+            </div>
+
+            <div id="progress"></div>
+
+        </div>
+
+        <div id="scoreContainer" style="display: none"></div>
+
+    </div>
+
+    <script src="womenQuiz.js"></script>
+
+</body>
+
+</html>
