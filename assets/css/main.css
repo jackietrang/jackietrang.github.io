@@ -193,6 +193,7 @@ input, select, textarea {
 }
 .section-wrapper {
 	margin-left:100px;
+	margin-right: 100px;
 	padding-top: 100px;
 	}
 .section-wrapper h1{
@@ -276,6 +277,11 @@ ul {
 	flex-wrap: wrap;
 	margin: 35px auto;
 	list-style-type: none;
+}
+
+/*Get in Touch*/
+#contact-section {
+	text-align: center;
 }
 
 /* Type */
@@ -432,19 +438,6 @@ ul {
 	}
 
 
-	/*pre {*/
-	/*	-webkit-overflow-scrolling: touch;*/
-	/*	font-family: "Courier New", monospace;*/
-	/*	font-size: 0.9em;*/
-	/*	margin: 0 0 2em 0;*/
-	/*}*/
-
-	/*	pre code {*/
-	/*		display: block;*/
-	/*		line-height: 1.75;*/
-	/*		padding: 1em 1.5em;*/
-	/*		overflow-x: auto;*/
-	/*	}*/
 
 	hr {
 		border: 0;
