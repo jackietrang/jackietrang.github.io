@@ -122,7 +122,7 @@ input, select, textarea {
 /*****************/
 .name-slogan {
 
-	background-image: url('../portfolio pics/headImg.png');
+	background-image: url('../portfolio pics/headImg2.jpg');
 	/* Background image is centered vertically and horizontally at all times */
 	background-position: center center;
 
@@ -141,8 +141,8 @@ input, select, textarea {
        while the background image is loading */
 	background-color: #464646;
 	position: relative;
-	min-height: 650px;
-	max-height: 750px;
+	min-height: 800px;
+	max-height: 850px;
 	min-width: 100%;
 }
 
