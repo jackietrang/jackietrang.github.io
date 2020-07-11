@@ -122,7 +122,7 @@ input, select, textarea {
 /*****************/
 .name-slogan {
 
-	background-image: url('../portfolio pics/headImg2.jpg');
+	background-image: url('../portfolio pics/headImg2-min-min.jpg');
 	/* Background image is centered vertically and horizontally at all times */
 	background-position: center center;
 
@@ -267,6 +267,8 @@ ul {
 	flex-wrap: wrap;
 	margin: 35px auto;
 	list-style-type: none;
+	justify-content: center;
+	align-items: center;
 }
 
 @media screen and (max-width: 1300px)
@@ -371,6 +373,13 @@ ul {
 
 			h1 {
 				font-size: 1.75em;
+			}
+
+			p {
+				font-size: 0.9em;
+			}
+			.content p {
+				display: none;
 			}
 
 		}
@@ -1692,7 +1701,7 @@ ul {
 						}
 
 		}
-
+		/*Mobile screen*/
 		@media screen and (max-width: 480px) {
 
 			.row {
@@ -1936,6 +1945,14 @@ ul {
 							padding-top: 2em;
 						}
 
+				.content p {
+					display: none;
+				}
+
+				p{
+					font-size: 0.9em;
+				}
+
 		}
 
 /* Section/Article */
@@ -1952,6 +1969,10 @@ ul {
 
 		header p {
 			margin-top: 0;
+		}
+
+		.content p {
+			display: none;
 		}
 
 	}
@@ -2041,7 +2062,7 @@ ul {
 	}
 
 		ul li {
-			padding-left: 0.5em;
+			padding-left: 1em;
 		}
 
 		ul.alt {
