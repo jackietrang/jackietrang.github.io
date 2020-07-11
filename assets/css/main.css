@@ -135,7 +135,7 @@ input, select, textarea {
 
 	/* This is what makes the background image rescale based
        on the container's size */
-	background-size: 100% 100%;
+	background-size: cover;
 
 	/* Set a background color that will be displayed
        while the background image is loading */
