@@ -210,6 +210,7 @@ p .about-text {
 	max-width: 50%;
 }
 
+
 #about-section .about-wrapper .headshot {
 	display:inline-block;
 	width:35%;
@@ -234,14 +235,6 @@ p .about-text {
 }
 
 
-
-.skills p, .skills li {
-	font-size: 2em;
-	width: 75%;
-	margin: 1% auto;
-	text-align: center;
-}
-
 hr {
 	margin: 2% auto;
 	width: 60%;
@@ -253,10 +246,6 @@ ul {
 	padding-left: 0;
 }
 
-.skills li {
-	margin-top: 5px;
-	width: 30%;
-}
 
 .skills li img {
 	max-width: 150px;
@@ -278,6 +267,25 @@ ul {
 	margin: 35px auto;
 	list-style-type: none;
 }
+
+@media screen and (max-width: 1300px)
+    .skills ul {
+        width: 85%;
+    }
+
+@media (max-width: 425px)
+    .skills ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 90%;
+    }
+
+@media screen and (max-width: 767px)
+    .skills li {
+        margin-top: 5px;
+        width: 45%;
+    }
 
 /*Get in Touch*/
 #contact-section {
