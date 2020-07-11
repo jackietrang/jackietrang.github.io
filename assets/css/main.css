@@ -134,7 +134,7 @@ input, select, textarea {
 	background-attachment: fixed;
 
 	/* This is what makes the background image rescale based
-       on the container's size */
+       on the container's s */
 	background-size: cover;
 
 	/* Set a background color that will be displayed
