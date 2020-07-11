@@ -141,7 +141,8 @@ input, select, textarea {
        while the background image is loading */
 	background-color: #464646;
 	position: relative;
-	min-height: 800px;
+	/*100% view point background*/
+	min-height: 100vh;
 	max-height: 850px;
 	min-width: 100%;
 }
