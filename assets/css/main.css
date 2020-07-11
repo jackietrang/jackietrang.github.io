@@ -222,12 +222,12 @@ p .about-text {
 	max-width:450px
 }
 
-@media only screen and (max-width: 1000px)
-	#about-section .section-subheading {
+@media only screen and (max-width: 900px)
+	#about-section #section-subheading {
 		width: 100%;
+		display: block;
 	}
-
-#about-section .section-subheading {
+#about-section #section-subheading {
 	width: 60%;
 	font-size: 1.2em;
 	font-weight: 500;
@@ -235,6 +235,12 @@ p .about-text {
 	margin-top: 1em;
 }
 
+@media only screen and (max-width: 900px)
+	#about-section .about-wrapper .headshot {
+		display: inline-flex;
+		margin: 10px 0 40px 0;
+		width: auto;
+	}
 
 hr {
 	margin: 2% auto;
