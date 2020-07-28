@@ -3529,8 +3529,8 @@ ul {
 		-moz-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.5);
 		box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.5);
 		transition-duration: .25s;
-		width: 80%;
-		height: 80%;
+		width: 100%;
+		height: 100%;
 	}
 
 	.picContainer:hover img{
@@ -3539,6 +3539,12 @@ ul {
 		box-shadow: 0 0 0 0px rgba(0,0,0,0.5);
 		transition-duration: .25s;
 	}
+
+	.projects {
+		display: flex;
+		justify-content: space-evenly;
+	}
+
 
 	.picOverlay {
 		margin-left: 10%;
@@ -3586,3 +3592,16 @@ ul {
 	padding: 1%;
 	border-radius: 5px;
 }
+
+.projects .col {
+	flex: 100%;
+	max-width: 50%;
+	padding: 0 1%;
+	padding-bottom: 5%;
+}
+
+img {
+	max-width: 100%;
+	object-fit: cover;
+}
+
