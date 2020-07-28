@@ -3601,3 +3601,9 @@ img {
 	object-fit: cover;
 }
 
+@media screen and (max-width: 767px) {
+	.projects .col {
+		flex: 90%;
+		max-width: 100%;
+		padding: 0 1%;
+	}
