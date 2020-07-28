@@ -188,6 +188,8 @@ input, select, textarea {
 }
 
 /*Skills*/
+
+
 .session-title{
 	font-family: "Chronicle Display Bold", Georgia, serif;
 	font-size: 0.8em;
@@ -250,29 +252,31 @@ hr {
 	background-color: black;
 }
 
+	ul {
+		list-style: disc;
+		margin: 0 0 2em 0;
+		padding-left: 1em;
+	}
+	.skills .skill-item {
+		margin-left: 1em;
+		display: inline-block;
+		padding: 7px 7px 5px;
+		margin-right: 5px;
+		color: white;
+		background: #9B59B6;
+		border-radius: 3px;
+		text-transform: uppercase;
+		font-size: 15px;
+		font-weight: 560;
+		letter-spacing: .5px;
+	}
+	.skill-items {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		font-family: Gotham,Helvetica,Arial,sans-serif;
+	}
 
-.skills li img {
-	max-width: 150px;
-	max-height: 150px;
-	margin-top: 25px;
-	transition-duration: .5s;
-}
-
-.skills li img:hover {
-	transform: scale(1.15);
-	transition-duration: .5s;
-}
-
-.skills ul {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	margin: 35px auto;
-	list-style-type: none;
-	justify-content: center;
-	align-items: center;
-}
 
 @media screen and (max-width: 1300px)
     .skills ul {
