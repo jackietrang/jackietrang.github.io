@@ -3572,7 +3572,7 @@ hr {
 		opacity: 1;
 	}
 
-	.picOverlay h4, ul li{
+	.picOverlay h4, .picOverlay ul li{
 		width: inherit;
 		font-size: 1.3em;
 		text-align: center;
