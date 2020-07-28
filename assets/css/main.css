@@ -249,9 +249,6 @@ hr {
 	height: 1px;
 	background-color: black;
 }
-ul {
-	padding-left: 0;
-}
 
 
 .skills li img {
@@ -3547,8 +3544,7 @@ ul {
 
 
 	.picOverlay {
-		margin-left: 10%;
-		width: 80%;
+		width: 100%;
 		height: inherit;
 		opacity: 0;
 		transition-property: opacity;
@@ -3576,10 +3572,10 @@ ul {
 		opacity: 1;
 	}
 
-	.picOverlay h4{
+	.picOverlay h4, ul li{
 		width: inherit;
-		margin-left: 30%;
 		font-size: 1.3em;
+		text-align: center;
 	}
 
 .picOverlay button {
@@ -3588,7 +3584,7 @@ ul {
 	border: none;
 	background: transparent;
 	margin-top: 5%;
-	width: 200%;
+	width: 150%;
 	padding: 1%;
 	border-radius: 5px;
 }
