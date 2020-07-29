@@ -192,8 +192,9 @@ input, select, textarea {
 	display: flex;
 }
 
+/*The picture should be above the text in mobile version*/
 .about-text {
-	flex: 55%;
+	flex: 60%;
 	padding-right: 40px;
 }
 
@@ -203,7 +204,7 @@ input, select, textarea {
 
 .about-img .headshot {
 	display:inline-block;
-	width:inherit;
+	width:90%;
 	height:auto;
 	border-radius:50%;
 	float:right;
