@@ -193,18 +193,19 @@ input, select, textarea {
 }
 
 .about-text {
-	flex: 60%;
+	flex: 55%;
+	padding-right: 40px;
 }
 
 .about-img {
-	flex: 40%;}
+	flex: 30%;
+	}
 
 .about-img .headshot {
 	display:inline-block;
 	width:inherit;
 	height:auto;
 	border-radius:50%;
-	margin-left: 5%;
 	float:right;
 	box-shadow: 10px 10px 10px 0px rgb(206,160,220,0.5);
 }
@@ -229,13 +230,6 @@ input, select, textarea {
 	line-height:1.5em
 }
 
-p .about-text {
-	max-width: 50%;
-}
-
-
-
-
 @media only screen and (max-width: 900px)
 	#about-section #section-subheading {
 		width: 100%;
@@ -244,7 +238,7 @@ p .about-text {
 #about-section #section-subheading {
 	width: 100%;
 	font-size: 1.2em;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.5;
 	margin-top: 1em;
 }
