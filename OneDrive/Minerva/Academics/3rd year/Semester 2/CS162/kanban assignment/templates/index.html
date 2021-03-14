@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Kaban Board</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <h1>Jackie's Kaban Board</h1>
+    <div class="task-input">
+        <form method='POST' action="/add">
+            <label class="input-task">Task Name</label>
+            <input class="input-task" type="text" name="title">
+            <select class="input-task" name="status">
+                <option value="todo">To Do</option>
+                <option value="doing">Doing</option>
+                <option value="done">Done</option>
+            </select>
+            <br>
+            <input class="btn-submit" type="submit" value="Create Task">
+        </form>
+    </div>
+
+<section>
+    <div class="flex-container">
+        <div id= "first-box" title="todo">
+            <h2>TO DO</h2>
+            <table>
+                {% for task in todo %}
+                <tr>
+                    <td>
+                        <ul class="canva-container">
+                            <li class="canva-card" style="list-style-type: none;">
+                                {{task.title}}
+                            </li>
+                        </ul>
+                    </td>
+                    
+                    <!-- Move to different category -->
+                    <td>
+                        <form method="POST" action="{{ url_for('update') }}">
+                           <input type="hidden" value="doing" name="move_to_status">
+                          <input type="hidden" value="{{task.title}}" name="task_name">
+                          <input class="btn-task" type="submit" value="Move" style="
+                          border-radius: 1.4em;
+                          border: 1px solid #dda3e2;">
+                        </form>
+                      </td>
+                      
+                      <!-- Delete task -->
+                    <td>
+                        <form method="POST" action="./delete">
+                        <input type="hidden" value="{{task.title}}" name="task_delete">
+                        <input class="btn-task" type="submit" value="Delete" style="
+                        border-radius: 1.4em;
+                        border: 1px solid #dda3e2;">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    
+        <div id="second-box" title="doing">
+            <h2> DOING</h2>
+            <table>
+                {% for task in doing %}
+                <tr>
+                    <td>
+                        <ul>
+                            <li class="canva-card" style="list-style-type: none;">{{task.title}}</li>
+                        </ul>
+                    </td>
+
+                    <td>
+                        <form method="POST" action="./update">
+                            <input type="hidden" value="done" name="move_to_status">
+                          <input type="hidden" value="{{task.title}}" name="task_name">
+                          <input class="btn-task" type="submit" value="Move" style="
+                          border-radius: 1.4em;
+                          border: 1px solid #dda3e2;">
+                        </form>
+                      </td>
+
+                    <td>
+                        <form method="POST" action="./delete">
+                        <input type="hidden" value="{{task.title}}" name="task_delete">
+                        <input class="btn-task" type="submit" value="Delete" style="
+                        border-radius: 1.4em;
+                        border: 1px solid #dda3e2;">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div id="third-box">
+            <h2>DONE</h2>
+            <table>
+                {% for task in done %}
+                <tr>
+                    <td>
+                        <ul>
+                            <li class="canva-card" style="list-style-type: none;"> {{task.title}}</li>
+                        </ul>
+                    </td>
+                
+                    <td>
+                        <form method="POST" action="./update">
+                          <input type="hidden" value="{{task.title}}" name="task_name">
+                          <input type="hidden" value="doing" name="move_to_status">
+                          <input class="btn-task" type="submit" value="Move" style="
+                          border-radius: 1.4em;
+                          border: 1px solid #dda3e2;">
+                        </form>
+                      </td>
+
+                      <td>
+                        <form method="POST" action="./delete">
+                          <input type="hidden" value="{{task.title}}" name="task_delete">
+                          <input class="btn-task" type="submit" value="Delete" style="
+                          border-radius: 1.4em;
+                          border: 1px solid #dda3e2;">
+              
+                        </form>
+                      </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+    </div>
+
+</section>        
+</body>
+
+</html>

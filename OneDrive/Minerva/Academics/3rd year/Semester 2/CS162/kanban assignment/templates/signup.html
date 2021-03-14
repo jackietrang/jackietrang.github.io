@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <title>SignUp</title>
+  </head>
+
+  <body>
+  <h1>Sign Up</h1>
+  <div class="flex-container">
+    <form method="POST" action="/signup">
+    <input class="input-task" type="text" placeholder="Enter Username" name="user_email" required>
+      <br>
+    <input class="input-task" type="password" placeholder="Enter Password" name="password" required>
+      <br>
+    <input class="input-task" type="password" placeholder="Confirm Password" name="repeat" required>
+    <br>
+    <input class="btn-submit" type="submit" value="Sign-Up" style="display: inline-block;">
+    </form>
+  </div>
+
+    {% if error %}
+    <p class="error" style="margin-left: 40%;">Error message: {{error}}
+    {% endif %}
+  <div class="flex-container">
+    <p>I already had an accounts. <a href="{{ url_for ('signin') }}">Sign-In</a></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SignIn</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  
+  <body>
+    <h1>Sign In</h1>
+    <div class="flex-container">
+      
+      <form method="POST">
+        <input class="input-task" type="text" placeholder="Username" name="user_email" value="{{request.form.user_email}}">
+        <br>
+        <input class="input-task" type="password" placeholder="Password" name="password" value="{{request.form.password}}">
+        <br>
+        <input class="btn-submit" type="submit" value="Sign in">
+      </form>
+    </div>
+    <div class="flex-container">
+      <form method="GET" action="/signup">
+        <input class="btn-submit" type="submit" value="Sign up a new account" 
+        style="display: inline-block;">
+      </form>
+    </div>
+    
+  </body>
+</html>

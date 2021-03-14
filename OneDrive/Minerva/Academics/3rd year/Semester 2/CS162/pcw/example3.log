@@ -1,0 +1,8 @@
+rootAnd this, too
+rootAnd this, too
+rootAnd this, too
+rootlog exception
+Traceback (most recent call last):
+  File "<ipython-input-4-438d69e46507>", line 5, in <module>
+    assert a == b
+AssertionError

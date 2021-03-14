@@ -1,0 +1,6 @@
+DEBUG:root:This message goes to the log file
+INFO:root:So should this
+WARNING:root:And this, too
+DEBUG:root:This message goes to the log file
+INFO:root:So should this
+WARNING:root:And this, too
